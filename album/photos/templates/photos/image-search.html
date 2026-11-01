@@ -1,0 +1,39 @@
+{% extends 'photos/home.html' %}
+{% load static %}
+
+{%  block content %}
+
+
+<div class="Project-container">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col text-center p-4">
+    {% comment %} <h3 class="font-weight-bolder">GELLARY</h3> {% endcomment %}
+  </div>
+  </div>
+  </div>
+  <div class="row p-4 g-4">
+  {% for x in photos %}
+  <div class="col-md-3">
+  <div class="card-body shadow">
+  <a href="{{ x.image.url }}" data-lightbox="image-1" data-title="My caption">
+  <img src="{{ x.image.url }}" alt="" style="height: 300px;" width: "380px">
+  </a>
+  </div>
+  <p class="card-text py-2">{{ x.category }}</p>
+  </div>
+  {% endfor %}
+  </div>
+  </div>
+  <script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true
+    })
+  </script>     
+  
+
+
+
+
+{%  endblock content %}  
